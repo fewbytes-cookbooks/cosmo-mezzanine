@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+# TODO: run as non-root
+
+cd <%= @options[:virtualenv_dir] %>
+<%= @options[:virtualenv_dir] %>/bin/gunicorn <%= @options[:app_name] %>.wsgi:application
