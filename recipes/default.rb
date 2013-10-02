@@ -59,6 +59,14 @@ runit_service "mezzanine" do
   default_logger true
 end
 
+template "#{node['nginx']['dir']}/sites-available/mezzanine" do
+  source "nginx-mezzanine.erb"
+  variables :app_dir => app_dir
+  notifies :reload, "service[nginx]"
+end
+
+nginx_site "mezzanine"
+
 service "mezzanine" do
   action :start
 end
