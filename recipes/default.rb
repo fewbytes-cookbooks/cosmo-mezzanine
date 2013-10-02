@@ -32,10 +32,6 @@ end
   end
 end
 
-# gunicorn_config node['mezzanine']['gunicorn_config_file'] do
-# 
-# end
-
 # TODO: replace this part with one that brings a real application - start
 execute "Create mezzanine project at #{app_dir}" do
   command "#{virtualenv_dir}/bin/mezzanine-project #{app_dir}"
