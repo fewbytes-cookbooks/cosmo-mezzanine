@@ -13,8 +13,6 @@
 
 include_recipe "python::pip"
 include_recipe "python::virtualenv"
-# include_recipe "nginx" # run in another step
-# include_recipe "gunicorn" # run in another step
 include_recipe "runit"
 
 if not node['gunicorn']
@@ -23,9 +21,6 @@ end
 
 virtualenv_dir = node['gunicorn']['virtualenv'] # Virtualenv is created by "gunicorn" cookbook
 python_bin = "#{virtualenv_dir}/bin/python"
-
-# TODO LATER: use node['mezzanine']['app_dir']
-app_dir = File.join(virtualenv_dir, node['mezzanine']['app_name'])
 
 directory "#{virtualenv_dir}/app" do
 end
