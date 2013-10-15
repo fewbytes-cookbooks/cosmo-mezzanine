@@ -1,4 +1,4 @@
-define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port => 8000, :hostname => nil do
+define :mezzanine_app_configure_db, :git_repository => nil, :git_revision => 'HEAD', :port => 8000, :hostname => nil do
   if node['mezzanine']['apps']
 
     if not node['gunicorn']
