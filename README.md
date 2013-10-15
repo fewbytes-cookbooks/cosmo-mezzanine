@@ -33,3 +33,7 @@ Usage
     # App start
     mezzanine_app_start "test1" do
     end
+
+TODO
+====
+  * Convert to [LWRP](http://docs.opscode.com/chef/lwrps_custom.html)s
