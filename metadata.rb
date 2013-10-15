@@ -1,6 +1,8 @@
 # Based on
 # https://github.com/stephenmcd/mezzanine/blob/master/mezzanine/project_template/fabfile.py
 
+# TODO: use lwrps
+
 # Tested on Ubuntu 12.04 LTS
 
 maintainer       "YOUR_COMPANY_NAME"

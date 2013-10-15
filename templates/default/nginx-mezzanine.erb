@@ -1,18 +1,21 @@
 # Based on: https://github.com/stephenmcd/mezzanine/blob/master/mezzanine/project_template/deploy/nginx.conf
 # Later: make the name and port dynamic
-upstream local_unicorn {
-  server 127.0.0.1:8000;
+upstream local_unicorn_<%= @app %> {
+  server 127.0.0.1:<%= @port %>;
 }
 
 server {
   listen 80;
+  <% if @hostname -%>
+  server_name <%= @hostname %>;
+  <% end -%>
   location / {
     proxy_redirect off;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Protocol $scheme;
-    proxy_pass http://local_unicorn;
+    proxy_pass http://local_unicorn_<%= @app %>;
   }
   location /static/ {
     root <%= @app_dir %>;
