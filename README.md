@@ -10,6 +10,7 @@ Attributes
 ==========
 
 * Uses `node['gunicorn']['virtualenv']` from the `gunicorn` cookbook.
+* `node['injected']['mezzanine_db_host']` - put the IP of the DB server here.
 
 Usage
 =====
