@@ -1,5 +1,7 @@
 define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port => 8000, :hostname => nil do
 
+  include_recipe "nginx"
+
   if not node['gunicorn']
     Chef::Application.fatal!("mezzanine requires gunicorn")
   end
@@ -54,7 +56,7 @@ define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port =>
   end
 
   if not node['mezzanine']['apps']
-    node['mezzanine']['apps'] = []
+    node.set['mezzanine']['apps'] = []
   end
 
   if not node['mezzanine']['apps'].include?(app)
