@@ -32,6 +32,7 @@ define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port =>
     cookbook "mezzanine"
     source "nginx-mezzanine.erb"
     variables ({
+      :app => app,
       :app_dir => app_dir,
       :port => params[:port],
       :hostname => params[:hostname]
