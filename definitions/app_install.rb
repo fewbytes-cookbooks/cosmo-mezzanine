@@ -1,6 +1,6 @@
 define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port => 8000, :hostname => nil do
 
-  include_recipe "nginx"
+  include_recipe "nginx" # For ability to restart the service and for nginx_site
 
   if not node['gunicorn']
     Chef::Application.fatal!("mezzanine requires gunicorn")
@@ -60,7 +60,7 @@ define :mezzanine_app, :git_repository => nil, :git_revision => 'HEAD', :port =>
   end
 
   if not node['mezzanine']['apps'].include?(app)
-    node['mezzanine']['apps'] << app
+    node.set['mezzanine']['apps'] << app
   end
 
 end

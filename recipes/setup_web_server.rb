@@ -11,6 +11,7 @@
 #   * run as non-root
 #   * one virtualenv per app
 
+include_recipe "apt" # Otherwise apt packages install can fail because of stale apt cache
 include_recipe "python::pip"
 include_recipe "python::virtualenv"
 include_recipe "runit"

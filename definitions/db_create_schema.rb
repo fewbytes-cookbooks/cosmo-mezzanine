@@ -18,6 +18,6 @@ define :mezzanine_db_create_database do
     node.set['mezzanine_databases'] = []
   end
 
-  node['mezzanine_databases'] << db_name
+  node.set['mezzanine_databases'] << db_name
 
 end
